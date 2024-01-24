@@ -9,9 +9,10 @@ const users = []; // User data storage: empty array
 
 // Function to find a user by ID in your users array or database
 function findUserById(userId) {
-        return users.find(user => user.id === userId); 
-    }
+    return users.find(user => user.id === userId);
+}
 
+// TODO: Return user object - https://expressjs.com/en/guide/routing.html
 USER_API.get('/:id', (req, res) => { // Fetching users by ID
 
     const userId = req.params.id; // Extracting the 'id' parameter from the request URL
@@ -23,11 +24,6 @@ USER_API.get('/:id', (req, res) => { // Fetching users by ID
     } else {
         res.status(HttpCodes.ClientSideError.NotFound).end(); // If user is not found, send a 404 Not Found status
     }
-    // Tip: All the information you need to get the id part of the request can be found in the documentation 
-    // https://expressjs.com/en/guide/routing.html (Route parameters)
-
-    // TODO: 
-    // Return user object
 });
 
 USER_API.post('/', (req, res, next) => { // Creating a new user
