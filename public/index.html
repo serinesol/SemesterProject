@@ -4,12 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My app</title>
+    <title>MangaList</title>
 </head>
 
 
 <body>
-    <h1>Hello Class</h1>
+    <h1>Your Personal Manga List!</h1>
+
+    <button id="createUserButton">Create User</button>
+
+    <button id="logInButton">Log In</button>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const createUserButton = document.getElementById('createUserButton');
+            createUserButton.addEventListener('click', function () {
+                alert('Button clicked!');
+            });
+
+            const logInButton = document.getElementById('logInButton');
+            logInButton.addEventListener('click', function () {
+                alert('Button clicked!');
+            });
+        })
+
+    </script>
+
 </body>
 
 </html>
