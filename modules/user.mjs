@@ -1,3 +1,5 @@
+import DBManager from "./storageManager.mjs"
+
 class User {
 
     constructor() { // Initializing instance of the 'User' class
@@ -10,7 +12,15 @@ class User {
 
     // He likes the "save" function
     save() {
-        DBManager.save(this);
+        if (this.id == null) {
+            DBManager.createUser(this);
+        } else {
+            DBManager.updateUser(this);
+        }
+    }
+
+    delete() {
+        DBManager.deleteUser(this);
     }
 
 }
