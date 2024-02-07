@@ -2,7 +2,7 @@
 // The point of this class is increasing readability and maintainability of the rest of the code. 
 // It should be extended and refactord as needed.
 
-class HttpCodes {
+export class HTTPCodes {
 
     static SuccesfullResponse = {
         Ok: 200, // Request Succeded
@@ -32,4 +32,11 @@ class HttpCodes {
     
 }
 
-export default HttpCodes;
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+export const HTTPMethods = {
+    POST: "POST",
+    GET: "GET",
+    PUT: "PUT",
+    PATCH: "PATCH",
+    DELETE: "DELETE"
+}

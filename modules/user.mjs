@@ -5,7 +5,14 @@ class User {
         this.email;
         this.pswHash;
         this.name;
+        this.id;
     }
+
+    // He likes the "save" function
+    save() {
+        DBManager.save(this);
+    }
+
 }
 
 export default User;

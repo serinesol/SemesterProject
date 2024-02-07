@@ -1,39 +1,44 @@
-import express, { response } from "express"; // Importing exspress framework for building web applications
+import express, { response } from "express";
 import User from "../modules/user.mjs";
-import HttpCodes from "../modules/httpCodes.mjs";
+import { HTTPCodes } from "../modules/httpConstants.mjs";
+import SuperLogger from "../modules/SuperLogger.mjs";
 
 
-const USER_API = express.Router(); // Initializing an instance of the express router
 
-const users = []; // User data storage: empty array
 
-// Function to find a user by ID in your users array or database
-function findUserById(userId) {
-    return users.find(user => user.id === userId);
-}
+const USER_API = express.Router();
+USER_API.use(express.json()); // This makes it so that express parses all incoming payloads as JSON for this route.
 
-// TODO: Return user object - https://expressjs.com/en/guide/routing.html
-USER_API.get('/:id', (req, res) => { // Fetching users by ID
+const users = [];
 
-    const userId = req.params.id; // Extracting the 'id' parameter from the request URL
+USER_API.get('/', (req, res, next) => {
+    SuperLogger.log("Demo of logging tool");
+    SuperLogger.log("A important msg", SuperLogger.LOGGING_LEVELS.CRTICAL);
+})
 
-    const user = findUserById(userId); // Find the user by ID
+USER_API.get('/:id', (req, res, next) => {
+
+    // Tip: All the information you need to get the id part of the request can be found in the documentation 
+    // https://expressjs.com/en/guide/routing.html (Route parameters)
 
     if (user) {
-        res.json(user); // If user is found, send the user object as the response
+        res.status(HTTPCodes.SuccesfullResponse.Ok).json(user);
     } else {
-        res.status(HttpCodes.ClientSideError.NotFound).end(); // If user is not found, send a 404 Not Found status
+        res.status(HTTPCodes.ClientSideError.NotFound).end();
     }
-});
 
-USER_API.post('/', (req, res, next) => { // Creating a new user
+    /// TODO: 
+    // Return user object
+})
+
+USER_API.post('/', (req, res, next) => {
 
     // This is using javascript object destructuring.
     // Recomend reading up https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#syntax
     // https://www.freecodecamp.org/news/javascript-object-destructuring-spread-operator-rest-parameter/
     const { name, email, password } = req.body;
 
-    if (name != "" && email != "" && password != "") { // Checks if the required fields are not empty
+    if (name != "" && email != "" && password != "") {
         const user = new User();
         user.name = name;
         user.email = email;
@@ -44,25 +49,56 @@ USER_API.post('/', (req, res, next) => { // Creating a new user
         ///TODO: Does the user exist?
         let exists = false;
 
-        if (!exists) {
+        if (!exists) { // This needs to go into a database.
+
+            // "const statment = ``"
+
             users.push(user);
-            res.status(HttpCodes.SuccesfullResponse.Ok).end();
+            res.status(HTTPCodes.SuccesfullResponse.Ok).end();
         } else {
-            res.status(HttpCodes.ClientSideError.BadRequest).end();
+            res.status(HTTPCodes.ClientSideError.BadRequest).end();
         }
 
     } else {
-        res.status(HttpCodes.ClientSideError.BadRequest).send("Mangler data felt").end();
+        res.status(HTTPCodes.ClientSideError.BadRequest).send("Mangler data felt").end();
     }
 
 });
 
-USER_API.put('/:id', (req, res) => { // Updating a user
+USER_API.put('/:id', (req, res) => {
     /// TODO: Edit user
+
+    const userId = req.params.id;
+    const updatedData = req.body;
+
+    // Find the user with the specified id
+    const userIndex = users.findIndex(u => u.id === userId);
+
+    if (userIndex !== -1) {
+        // Update user data
+        Object.assign(users[userIndex], updatedData);
+        res.status(HTTPCodes.SuccesfullResponse.Ok).end();
+    } else {
+        res.status(HTTPCodes.ClientSideError.NotFound).end();
+    }
+
 })
 
-USER_API.delete('/:id', (req, res) => { // Deleting ausersRoute user
-    /// TODO: Delete user.
+USER_API.delete('/:id', (req, res) => {
+    /// TODO: Delete user
+
+    const userId = req.params.id;
+
+    // Find the user with the specified id
+    const userIndex = users.findIndex(u => u.id === userId);
+
+    if (userIndex !== -1) {
+        // Remove the user from the array
+        users.splice(userIndex, 1);
+        res.status(HTTPCodes.SuccesfullResponse.Ok).end();
+    } else {
+        res.status(HTTPCodes.ClientSideError.NotFound).end();
+    }
 })
 
-export default USER_API // Exporting the USER_API, making it available in other parts of the application
+export default USER_API

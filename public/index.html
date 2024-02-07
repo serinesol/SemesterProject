@@ -9,25 +9,48 @@
 
 
 <body>
-    <h1>Your Personal Manga List!</h1>
 
-    <button id="createUserButton">Create User</button>
+    <h1>Your Personal Manga List!</h1>
 
     <button id="logInButton">Log In</button>
 
+    <div>
+        Name: <input type="text" id="name"><br>
+        Email: <input type="email" id="email"><br />
+        Password: <input type="password" id="pswHash"><br />
+        <button id="createUserButton">Create User</button>
+    </div>
+
     <script>
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const createUserButton = document.getElementById('createUserButton');
-            createUserButton.addEventListener('click', function () {
-                alert('Button clicked!');
-            });
+        const createUserButton = document.getElementById("createUserButton");
 
-            const logInButton = document.getElementById('logInButton');
-            logInButton.addEventListener('click', function () {
-                alert('Button clicked!');
-            });
-        })
+        createUserButton.onclick = async function (e) {
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const pswHash = document.getElementById("pswHash").value;
+
+            const user = { name, email, pswHash };
+
+            const respon = await postTo("/user", user);
+
+        }
+
+
+        async function postTo(url, data) {
+            const header = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            };
+
+            const respon = await fetch(url, header);
+            return respon;
+        }
+
 
     </script>
 
