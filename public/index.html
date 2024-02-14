@@ -62,6 +62,10 @@
             margin-top: 10px;
             text-align: center;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 
@@ -73,24 +77,42 @@
         <h1>Your Personal Manga List</h1>
     </div>
     <div id="header2">
-        <h4>Collect Them All!</h4>
+        <h4>Collect All Volumes!</h4>
     </div>
 
-    <div class="container">
-        <button id="logInButton">Log In</button>
+    <div id="loginPage" class="container">
+        <button id="loginButton">Log In</button>
         <br>
 
-        <div>
+        <div id="loginForm">
             Name: <input type="text" id="name"><br>
             Email: <input type="email" id="email"><br />
             Password: <input type="password" id="pswHash"><br />
             <button id="createUserButton">Create User</button>
+            <div id="error-message" class="hidden"></div>
+        </div>
+    </div>
+
+    <div id="mainPage" class="container hidden">
+        <!-- Manga you own -->
+        <div>
+            <h3>Manga you own:</h3>
+            <!-- Add your content for "Manga you own" here -->
+        </div>
+
+        <!-- Share with others -->
+        <div>
+            <h3>Share with others:</h3>
+            <!-- Add your content for "Share with others" here -->
         </div>
     </div>
 
 
     <script>
 
+        const loginButton = document.getElementById("loginButton");
+        const loginForm = document.getElementById("loginForm");
+        const mainPage = document.getElementById("mainPage");
         const createUserButton = document.getElementById("createUserButton");
 
         createUserButton.onclick = async function (e) {
@@ -101,6 +123,11 @@
             const user = { name, email, pswHash };
             const respon = await postTo("/user", user);
 
+            // Upon successful creation of the user, show the main page
+            if (respon.ok) {
+                mainPage.classList.remove("hidden");
+                loginPage.classList.add("hidden"); // Hide the login page
+            }
         }
 
 
