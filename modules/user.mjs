@@ -1,4 +1,4 @@
-import DBManager from "./storageManager.mjs"
+import DBManager from "./storageManager.mjs";
 
 class User {
 
@@ -11,15 +11,21 @@ class User {
     }
 
     // He likes the "save" function
-    save() {
+    async save() {
+
+        // TODO: What happens if the DBManager fails to complete its task?
+        // We know that if a user object dos not have the ID, then it cant be in the DB.
         if (this.id == null) {
-            DBManager.createUser(this);
+            return await DBManager.createUser(this);
         } else {
-            DBManager.updateUser(this);
+            return await DBManager.updateUser(this);
         }
+
     }
 
     delete() {
+
+        // TODO: What happens if the DBManager fails to complete its task?
         DBManager.deleteUser(this);
     }
 

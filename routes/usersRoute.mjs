@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express from "express";
 import User from "../modules/user.mjs";
 import { HTTPCodes } from "../modules/httpConstants.mjs";
 import SuperLogger from "../modules/SuperLogger.mjs";
@@ -39,7 +39,7 @@ USER_API.post('/', (req, res, next) => {
     const { name, email, password } = req.body;
 
     if (name != "" && email != "" && password != "") {
-        const user = new User();
+        let user = new User();
         user.name = name;
         user.email = email;
 
@@ -53,8 +53,8 @@ USER_API.post('/', (req, res, next) => {
 
             // "const statment = ``"
 
-            users.push(user);
-            res.status(HTTPCodes.SuccesfullResponse.Ok).end();
+            user = /*await*/ user.save();
+            res.status(HTTPCodes.SuccesfullResponse.Ok).json(JSON.stringify(user)).end();
         } else {
             res.status(HTTPCodes.ClientSideError.BadRequest).end();
         }
@@ -67,6 +67,9 @@ USER_API.post('/', (req, res, next) => {
 
 USER_API.put('/:id', (req, res) => {
     /// TODO: Edit user
+
+    const user = new User(); //TODO: The user info comes as part of the request 
+    user.save();
 
     const userId = req.params.id;
     const updatedData = req.body;
@@ -86,6 +89,9 @@ USER_API.put('/:id', (req, res) => {
 
 USER_API.delete('/:id', (req, res) => {
     /// TODO: Delete user
+
+    const user = new User(); //TODO: Actual user
+    user.delete();
 
     const userId = req.params.id;
 

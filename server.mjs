@@ -1,7 +1,7 @@
-//import `dotenv/config`;
+import 'dotenv/config';
 import express from 'express'; // Express is installed using npm
 import USER_API from './routes/usersRoute.mjs'; // This is where we have defined the API for working with users.
-import authenticateUser from './modules/authMiddleware.mjs';
+//import authenticateUser from './modules/authMiddleware.mjs';
 
 //console.log("DB Connection String" + process.env.DB_CONNECTIONSTRING); (only to check, delete after)
 
@@ -22,7 +22,7 @@ server.use(logger.createAutoHTTPRequestLogger()); // Will logg all http method r
 server.use(express.static('public'));
 
 // Apply authMiddleware to specific routes
-server.use(authenticateUser); // Apply the authMiddleware to all routes
+//server.use(authenticateUser); // Apply the authMiddleware to all routes
 
 // Telling the server to use the USER_API (all urls that uses this code will have to have the /user after the base address)
 server.use("/user", USER_API);
@@ -30,7 +30,6 @@ server.use("/user", USER_API);
 // A get request handler example)
 server.get("/", (req, res, next) => {
     
-    req.originalUrl
     res.status(200).send(JSON.stringify({ msg: "These are not the droids...." })).end();
 
 });
