@@ -65,7 +65,7 @@ USER_API.post('/', (req, res, next) => {
 
 });
 
-USER_API.put('/:id', (req, res) => {
+USER_API.post('/:id', (req, res, next) => {
     /// TODO: Edit user
 
     const user = new User(); //TODO: The user info comes as part of the request 

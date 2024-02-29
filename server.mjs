@@ -1,15 +1,13 @@
-import 'dotenv/config';
-import express from 'express'; // Express is installed using npm
-import USER_API from './routes/usersRoute.mjs'; // This is where we have defined the API for working with users.
-//import authenticateUser from './modules/authMiddleware.mjs';
-
-//console.log("DB Connection String" + process.env.DB_CONNECTIONSTRING); (only to check, delete after)
-
+import 'dotenv/config'
+import express from 'express' // Express is installed using npm
+import USER_API from './routes/usersRoute.mjs'; // This is where we have defined the API for working with users
 import SuperLogger from './modules/SuperLogger.mjs';
+import printDeveloperStartupInportantInformationMSG from "./modules/developerHelpers.mjs";
+
+printDeveloperStartupInportantInformationMSG();
 
 // Creating an instance of the server
 const server = express();
-
 // Selecting a port for the server to use.
 const port = (process.env.PORT || 8080); //"process.env.PORT": 
 server.set('port', port);

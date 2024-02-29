@@ -13,13 +13,41 @@
             background-color: #fceaff;
         }
 
-        .container {
+        .login-container {
             max-width: 400px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mainPage-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            /* Added */
+            justify-content: space-between;
+            /* Added */
+        }
+
+        #mainPage {
+            flex-direction: row;
+            /* Added */
+        }
+
+        .mainPage container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mainPage container {
+            width: 48%;
+            /* Modified */
         }
 
         h1 {
@@ -80,7 +108,7 @@
         <h4>Collect All Volumes!</h4>
     </div>
 
-    <div id="loginPage" class="container">
+    <div id="loginPage" class="login-ontainer">
         <button id="loginButton">Log In</button>
         <br>
 
@@ -93,27 +121,65 @@
         </div>
     </div>
 
-    <div id="mainPage" class="container hidden">
-        <!-- Manga you own -->
-        <div>
+    <div id="mainPage" class="mainPage-container hidden">
+        <div class="mainPage-container">
+            <input type="text" id="searchInput" placeholder="Search for manga...">
             <h3>Manga you own:</h3>
-            <!-- Add your content for "Manga you own" here -->
+            <ul id="mangaList">
+                <!-- Manga items will be dynamically added here -->
+                <!-- Add your content for "Manga you own" here -->
         </div>
 
-        <!-- Share with others -->
-        <div>
+        <div class="mainPage-container">
             <h3>Share with others:</h3>
             <!-- Add your content for "Share with others" here -->
         </div>
     </div>
 
 
+
+
     <script>
+
+        import mangaData from './mangaData.mjs';
 
         const loginButton = document.getElementById("loginButton");
         const loginForm = document.getElementById("loginForm");
         const mainPage = document.getElementById("mainPage");
         const createUserButton = document.getElementById("createUserButton");
+
+        const searchInput = document.getElementById("searchInput");
+        const mangaList = document.getElementById("mangaList");
+
+
+        // Add event listener to the search input
+        searchInput.addEventListener("input", function (event) {
+            const searchTerm = event.target.value.toLowerCase(); // Convert search term to lowercase for case-insensitive search
+
+            // Filter mangas based on search term
+            const filteredMangas = mangaData.mangas.filter(manga =>
+                manga.name.toLowerCase().includes(searchTerm)
+            );
+
+            // Update the displayed manga list
+            displayMangas(filteredMangas);
+        });
+
+        // Function to display the manga list
+        function displayMangas(mangas) {
+            // Clear the previous content of the manga list
+            mangaList.innerHTML = "";
+
+            // Display each manga in the list
+            mangas.forEach(manga => {
+                const listItem = document.createElement("li");
+                listItem.textContent = manga.name;
+                mangaList.appendChild(listItem);
+            });
+        }
+
+        // Initially display all mangas when the page loads
+        displayMangas(mangaData.mangas);
 
         createUserButton.onclick = async function (e) {
 
