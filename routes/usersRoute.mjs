@@ -2,7 +2,7 @@ import express from "express";
 import User from "../modules/user.mjs";
 import { HTTPCodes } from "../modules/httpConstants.mjs";
 import SuperLogger from "../modules/SuperLogger.mjs";
-
+//import createHmac from "../modules/crypto.mjs";
 
 
 
@@ -21,8 +21,8 @@ USER_API.get('/:id', (req, res, next) => {
     // Tip: All the information you need to get the id part of the request can be found in the documentation 
     // https://expressjs.com/en/guide/routing.html (Route parameters)
 
-    if (user) {
-        res.status(HTTPCodes.SuccesfullResponse.Ok).json(user);
+    if (User) {
+        res.status(HTTPCodes.SuccesfullResponse.Ok).json(User);
     } else {
         res.status(HTTPCodes.ClientSideError.NotFound).end();
     }
@@ -31,20 +31,18 @@ USER_API.get('/:id', (req, res, next) => {
     // Return user object
 })
 
-USER_API.post('/', (req, res, next) => {
+USER_API.post('/', async (req, res, next) => {
 
     // This is using javascript object destructuring.
     // Recomend reading up https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#syntax
     // https://www.freecodecamp.org/news/javascript-object-destructuring-spread-operator-rest-parameter/
-    const { name, email, password } = req.body;
+    const { name, password, email } = req.body;
 
-    if (name != "" && email != "" && password != "") {
+    if (name != "" && password != "" && email != "") {
         let user = new User();
         user.name = name;
+        user.pswHash = password; //TODO: Do not save passwords.
         user.email = email;
-
-        ///TODO: Do not save passwords.
-        user.pswHash = password;
 
         ///TODO: Does the user exist?
         let exists = false;
@@ -53,7 +51,7 @@ USER_API.post('/', (req, res, next) => {
 
             // "const statment = ``"
 
-            user = /*await*/ user.save();
+            user = await user.save();
             res.status(HTTPCodes.SuccesfullResponse.Ok).json(JSON.stringify(user)).end();
         } else {
             res.status(HTTPCodes.ClientSideError.BadRequest).end();

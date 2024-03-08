@@ -1,4 +1,4 @@
-const mangaData = {
+{
     "mangas": [
         {
             "name": "My Hero Acadamia",
@@ -26,6 +26,4 @@ const mangaData = {
             "numberOfVolumes": 25
         }
     ]
-};
-
-export default mangaData;
+}

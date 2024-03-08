@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { HTTPCodes } = require('./httpConstants.mjs');
+const { HTTPCodes } = require('../modules/httpConstants.mjs');
 
 const authenticateUser = (req, res, next) => {
 
@@ -19,4 +19,14 @@ const authenticateUser = (req, res, next) => {
     
 };
 
-export default authenticateUser;
+//export default authenticateUser;
+
+
+
+
+//Middlewaret til AT <3
+function login(req, res, next) {
+    res.status(200).send();
+}
+
+export default login;

@@ -65,7 +65,7 @@ class SuperLogger {
 
     static log(msg, logLevl = SuperLogger.LOGGING_LEVELS.NORMAL) {
 
-        let logger = SuperLogger();
+        let logger = new SuperLogger();
         if (logger.#globalThreshold > logLevl) {
             return;
         }
@@ -127,4 +127,4 @@ class SuperLogger {
 }
 
 
-export default SuperLogger
+export default SuperLogger;

@@ -23,7 +23,7 @@ class DBManager {
 
         try {
             await client.connect();
-            const output = await client.query('Update "public"."Users" set "name" = $1, "email" = $2, "password" = $3 where id = $4;', [user.name, user.email, user.pswHash, user.id]);
+            const output = await client.query('Update "public"."Users" set "username" = $1, "password" = $2, "email" = $3 where id = $4;', [user.name, user.email, user.pswHash, user.id]);
 
             // Client.Query returns an object of type pg.Result (https://node-postgres.com/apis/result)
             // Of special intrest is the rows and rowCount properties of this object.
@@ -68,14 +68,15 @@ class DBManager {
 
         try {
             await client.connect();
-            const output = await client.query('INSERT INTO "public"."Users"("name", "email", "password") VALUES($1::Text, $2::Text, $3::Text) RETURNING id;', [user.name, user.email, user.pswHash]);
-
+            const output = await client.query('INSERT INTO "public"."users"("username", "password", "email") VALUES($1::Text, $2::Text, $3::Text) RETURNING id;', [user.name, user.pswHash, user.email]);
+           
             // Client.Query returns an object of type pg.Result (https://node-postgres.com/apis/result)
             // Of special intrest is the rows and rowCount properties of this object.
 
             if (output.rows.length == 1) {
                 // We stored the user in the DB.
                 user.id = output.rows[0].id;
+                console.log(user.id);
             }
 
         } catch (error) {
@@ -95,17 +96,8 @@ class DBManager {
 // They accomplish the same thing but in different ways.
 // It is a judgment call which one is the best. But go for the one you understand the best.
 
-// 1:
+
 let connectionString = process.env.ENVIORMENT == "local" ? process.env.DB_CONNECTIONSTRING_LOCAL : process.env.DB_CONNECTIONSTRING_PROD;
-
-// 2:
-connectionString = process.env.DB_CONNECTIONSTRING_LOCAL;
-if (process.env.ENVIORMENT != "local") {
-    connectionString = process.env.DB_CONNECTIONSTRING_PROD;
-}
-
-//3: 
-connectionString = process.env["DB_CONNECTIONSTRING_" + process.env.ENVIORMENT.toUpperCase()];
 
 
 // We are using an enviorment variable to get the db credentials 

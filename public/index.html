@@ -23,31 +23,14 @@
         }
 
         .mainPage-container {
-            max-width: 400px;
+            max-width: 800px;
             margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
+            padding: 10px;
+            background-color: #fef9ff;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
-            /* Added */
             justify-content: space-between;
-            /* Added */
-        }
-
-        #mainPage {
-            flex-direction: row;
-            /* Added */
-        }
-
-        .mainPage container {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .mainPage container {
-            width: 48%;
-            /* Modified */
         }
 
         h1 {
@@ -61,7 +44,6 @@
         }
 
         input[type="text"],
-        input[type="email"],
         input[type="password"],
         button {
             display: block;
@@ -94,6 +76,18 @@
         .hidden {
             display: none;
         }
+
+        .search-container {
+            margin-bottom: 100px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            border: 10px solid #c2aec6;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 
@@ -108,31 +102,34 @@
         <h4>Collect All Volumes!</h4>
     </div>
 
-    <div id="loginPage" class="login-ontainer">
+    <div id="loginPage" class="login-container">
         <button id="loginButton">Log In</button>
         <br>
 
         <div id="loginForm">
-            Name: <input type="text" id="name"><br>
-            Email: <input type="email" id="email"><br />
-            Password: <input type="password" id="pswHash"><br />
+            <input type="text" id="name" placeholder="Username"><br>
+            <input type="password" id="pswHash" placeholder="Password"><br>
+            <input type="text" id="email" placeholder="E-Mail"><br>
             <button id="createUserButton">Create User</button>
             <div id="error-message" class="hidden"></div>
         </div>
+
     </div>
+
+
 
     <div id="mainPage" class="mainPage-container hidden">
         <div class="mainPage-container">
-            <input type="text" id="searchInput" placeholder="Search for manga...">
-            <h3>Manga you own:</h3>
-            <ul id="mangaList">
-                <!-- Manga items will be dynamically added here -->
-                <!-- Add your content for "Manga you own" here -->
+            <h3></h3>
+            <br>
+            <div id="mangaList"></div>
         </div>
 
         <div class="mainPage-container">
-            <h3>Share with others:</h3>
-            <!-- Add your content for "Share with others" here -->
+            <h3>Share with others</h3>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for users...">
+            </div>
         </div>
     </div>
 
@@ -141,58 +138,24 @@
 
     <script>
 
-        import mangaData from './mangaData.mjs';
-
         const loginButton = document.getElementById("loginButton");
         const loginForm = document.getElementById("loginForm");
         const mainPage = document.getElementById("mainPage");
         const createUserButton = document.getElementById("createUserButton");
 
-        const searchInput = document.getElementById("searchInput");
-        const mangaList = document.getElementById("mangaList");
-
-
-        // Add event listener to the search input
-        searchInput.addEventListener("input", function (event) {
-            const searchTerm = event.target.value.toLowerCase(); // Convert search term to lowercase for case-insensitive search
-
-            // Filter mangas based on search term
-            const filteredMangas = mangaData.mangas.filter(manga =>
-                manga.name.toLowerCase().includes(searchTerm)
-            );
-
-            // Update the displayed manga list
-            displayMangas(filteredMangas);
-        });
-
-        // Function to display the manga list
-        function displayMangas(mangas) {
-            // Clear the previous content of the manga list
-            mangaList.innerHTML = "";
-
-            // Display each manga in the list
-            mangas.forEach(manga => {
-                const listItem = document.createElement("li");
-                listItem.textContent = manga.name;
-                mangaList.appendChild(listItem);
-            });
-        }
-
-        // Initially display all mangas when the page loads
-        displayMangas(mangaData.mangas);
+        const mangaData = [];
 
         createUserButton.onclick = async function (e) {
 
             const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
             const pswHash = document.getElementById("pswHash").value;
-            const user = { name, email, pswHash };
+            const email = document.getElementById("email").value;
+            const user = { name, pswHash, email };
             const respon = await postTo("/user", user);
 
-            // Upon successful creation of the user, show the main page
             if (respon.ok) {
                 mainPage.classList.remove("hidden");
-                loginPage.classList.add("hidden"); // Hide the login page
+                loginPage.classList.add("hidden");
             }
         }
 
@@ -210,6 +173,69 @@
             return respon;
         }
 
+
+
+        document.addEventListener("DOMContentLoaded", async function () {
+            const mangaListContainer = document.getElementById("mangaList");
+
+            try {
+                const response = await fetch('./mangaData.json');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch manga data');
+                }
+                const mangaData = await response.json();
+
+                const mangaTitle = document.createElement("h3");
+                mangaTitle.textContent = "Manga you own";
+                mangaListContainer.appendChild(mangaTitle);
+
+                mangaData.mangas.forEach(manga => {
+                    const mangaContainer = document.createElement("div");
+
+                    const mangaName = document.createElement("span");
+                    mangaName.textContent = manga.name + ": ";
+                    
+
+
+                    const quantityInput = document.createElement("input");
+                    quantityInput.type = "text";
+                    quantityInput.value = 0;
+                    quantityInput.min = 0;
+                    quantityInput.max = manga.numberOfVolumes;
+
+
+
+                    const increaseButton = document.createElement("button");
+                    increaseButton.textContent = "+";
+                    increaseButton.onclick = function () {
+                        let currentValue = parseInt(quantityInput.value);
+                        if (currentValue < manga.numberOfVolumes) {
+                            currentValue++;
+                            quantityInput.value = currentValue;
+                        }
+                    };
+                    mangaContainer.appendChild(increaseButton);
+
+                    const decreaseButton = document.createElement("button");
+                    decreaseButton.textContent = "-";
+                    decreaseButton.onclick = function () {
+                        let currentValue = parseInt(quantityInput.value);
+                        if (currentValue > 0) {
+                            currentValue--;
+                            quantityInput.value = currentValue;
+                        }
+                    };
+
+                    mangaContainer.appendChild(document.createTextNode(manga.name + ": "));
+                    mangaContainer.appendChild(quantityInput);
+                    mangaContainer.appendChild(increaseButton);
+                    mangaContainer.appendChild(decreaseButton);
+                    mangaListContainer.appendChild(mangaContainer);
+                });
+            } catch (error) {
+                console.error('Error fetching manga data:', error.message);
+            }
+        });
 
     </script>
 
