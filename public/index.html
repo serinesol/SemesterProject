@@ -38,9 +38,18 @@
             color: #221125;
         }
 
+        h2 {
+            color: #000000;
+        }
+
+        h3 {
+            text-align: center;
+            color: #000000;
+        }
+
         h4 {
             text-align: center;
-            color: #221125;
+            color: #57166f;
         }
 
         input[type="text"],
@@ -88,6 +97,23 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
+
+        .manga-container {
+            margin-bottom: 80px;
+        }
+
+        #logoutContainer {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            z-index: 9999;
+        }
+
+        #logoutButton {
+            font-size: 14px;
+            padding: 8px 12px;
+            width: auto;
+        }
     </style>
 </head>
 
@@ -119,14 +145,15 @@
 
 
     <div id="mainPage" class="mainPage-container hidden">
+        <div id="logoutContainer">
+            <button id="logoutButton">Log Out</button>
+        </div>
         <div class="mainPage-container">
-            <h3></h3>
-            <br>
             <div id="mangaList"></div>
         </div>
 
         <div class="mainPage-container">
-            <h3>Share with others</h3>
+            <h2>Share with others</h2>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Search for users...">
             </div>
@@ -139,23 +166,44 @@
     <script>
 
         const loginButton = document.getElementById("loginButton");
+        const logoutButton = document.getElementById("logoutButton");
         const loginForm = document.getElementById("loginForm");
         const mainPage = document.getElementById("mainPage");
         const createUserButton = document.getElementById("createUserButton");
+        const loginPage = document.getElementById("loginPage");
 
         const mangaData = [];
 
-        createUserButton.onclick = async function (e) {
+        loginButton.onclick = async function (e) {
+            const username = document.getElementById("name").value;
+            const password = document.getElementById("pswHash").value;
 
+            try {
+                const response = await postTo("/login", { username, password });
+
+                if (response.ok) {
+                    mainPage.classList.remove("hidden");
+                    loginPage.classList.add("hidden");
+                    localStorage.setItem("loggedIn", "true");
+                } else {
+                    throw new Error("Login failed");
+                }
+            } catch (error) {
+                console.error("Login error:", error);
+            }
+        }
+
+        createUserButton.onclick = async function (e) {
             const name = document.getElementById("name").value;
             const pswHash = document.getElementById("pswHash").value;
             const email = document.getElementById("email").value;
             const user = { name, pswHash, email };
-            const respon = await postTo("/user", user);
+            const response = await postTo("/user", user);
 
-            if (respon.ok) {
+            if (response.ok) {
                 mainPage.classList.remove("hidden");
                 loginPage.classList.add("hidden");
+                localStorage.setItem("loggedIn", "true");
             }
         }
 
@@ -169,13 +217,18 @@
                 body: JSON.stringify(data),
             };
 
-            const respon = await fetch(url, header);
-            return respon;
+            const response = await fetch(url, header);
+            return response;
         }
 
-
-
         document.addEventListener("DOMContentLoaded", async function () {
+
+            const isLoggedIn = localStorage.getItem("loggedIn");
+            if (isLoggedIn === "true") {
+                mainPage.classList.remove("hidden");
+                loginPage.classList.add("hidden");
+            }
+
             const mangaListContainer = document.getElementById("mangaList");
 
             try {
@@ -185,57 +238,62 @@
                 }
                 const mangaData = await response.json();
 
-                const mangaTitle = document.createElement("h3");
-                mangaTitle.textContent = "Manga you own";
-                mangaListContainer.appendChild(mangaTitle);
+                const mainPageTitle = document.createElement("h2");
+                mainPageTitle.textContent = "Manga you own";
+                mangaListContainer.appendChild(mainPageTitle);
 
                 mangaData.mangas.forEach(manga => {
                     const mangaContainer = document.createElement("div");
+                    mangaContainer.classList.add("manga-container");
 
-                    const mangaName = document.createElement("span");
-                    mangaName.textContent = manga.name + ": ";
-                    
+                    const mangaTitle = document.createElement("h3");
+                    mangaTitle.textContent = manga.name;
+                    mangaListContainer.appendChild(mangaTitle);
 
+                    const mangaDescription = document.createElement("h4");
+                    mangaDescription.textContent = manga.description;
+                    mangaListContainer.appendChild(mangaDescription);
 
                     const quantityInput = document.createElement("input");
-                    quantityInput.type = "text";
-                    quantityInput.value = 0;
+                    quantityInput.type = "number";
+                    quantityInput.value = localStorage.getItem(`quantity_${manga.name}`) || 0;
                     quantityInput.min = 0;
                     quantityInput.max = manga.numberOfVolumes;
 
+                    const maxQuantity = document.createElement("span");
+                    maxQuantity.textContent = `(${quantityInput.value}/${manga.numberOfVolumes})`;
 
-
-                    const increaseButton = document.createElement("button");
-                    increaseButton.textContent = "+";
-                    increaseButton.onclick = function () {
-                        let currentValue = parseInt(quantityInput.value);
-                        if (currentValue < manga.numberOfVolumes) {
-                            currentValue++;
-                            quantityInput.value = currentValue;
+                    function updateMaxQuantity() {
+                        const currentValue = parseInt(quantityInput.value);
+                        if (!isNaN(currentValue)) {
+                            maxQuantity.textContent = `(${currentValue}/${manga.numberOfVolumes})`;
+                            localStorage.setItem(`quantity_${manga.name}`, currentValue);
                         }
-                    };
-                    mangaContainer.appendChild(increaseButton);
+                    }
 
-                    const decreaseButton = document.createElement("button");
-                    decreaseButton.textContent = "-";
-                    decreaseButton.onclick = function () {
-                        let currentValue = parseInt(quantityInput.value);
-                        if (currentValue > 0) {
-                            currentValue--;
-                            quantityInput.value = currentValue;
+                    quantityInput.addEventListener("input", function () {
+                        const currentValue = parseInt(quantityInput.value);
+                        if (!isNaN(currentValue)) {
+                            maxQuantity.textContent = `(${currentValue}/${manga.numberOfVolumes})`;
+                            localStorage.setItem(`quantity_${manga.name}`, currentValue);
                         }
-                    };
+                    });
 
-                    mangaContainer.appendChild(document.createTextNode(manga.name + ": "));
+                    quantityInput.addEventListener("input", updateMaxQuantity);
                     mangaContainer.appendChild(quantityInput);
-                    mangaContainer.appendChild(increaseButton);
-                    mangaContainer.appendChild(decreaseButton);
+                    mangaContainer.appendChild(maxQuantity);
                     mangaListContainer.appendChild(mangaContainer);
                 });
             } catch (error) {
                 console.error('Error fetching manga data:', error.message);
             }
         });
+
+        logoutButton.onclick = async function (e) {
+            localStorage.removeItem("loggedIn");
+            mainPage.classList.add("hidden");
+            loginPage.classList.remove("hidden");
+        }
 
     </script>
 

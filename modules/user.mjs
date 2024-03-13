@@ -23,6 +23,16 @@ class User {
 
     }
 
+    async displayAll() {
+        try {
+            const users = await DBManager.GetAllUsers();
+            return users;
+        } catch (error) {
+            console.log('Errormessage (displayAll):', error);
+            throw error;
+        }
+    }
+
     delete() {
 
         // TODO: What happens if the DBManager fails to complete its task?

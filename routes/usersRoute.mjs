@@ -36,12 +36,12 @@ USER_API.post('/', async (req, res, next) => {
     // This is using javascript object destructuring.
     // Recomend reading up https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#syntax
     // https://www.freecodecamp.org/news/javascript-object-destructuring-spread-operator-rest-parameter/
-    const { name, password, email } = req.body;
+    const { name, pswHash, email } = req.body;
 
-    if (name != "" && password != "" && email != "") {
+    if (name != "" && pswHash != "" && email != "") {
         let user = new User();
         user.name = name;
-        user.pswHash = password; //TODO: Do not save passwords.
+        user.pswHash = pswHash; //TODO: Do not save passwords.
         user.email = email;
 
         ///TODO: Does the user exist?
@@ -63,7 +63,23 @@ USER_API.post('/', async (req, res, next) => {
 
 });
 
-USER_API.post('/:id', (req, res, next) => {
+USER_API.post('/login', (req, res, next) => {
+    const { username, password } = req.body;
+    console.log("Received login request with username:", username, "and password:", password);
+
+    // Find the user in your database or user list
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+        // Authentication successful
+        res.status(HTTPCodes.SuccesfullResponse.Ok).json({ message: 'Login successful', user });
+    } else {
+        // Authentication failed
+        res.status(HTTPCodes.ClientSideError.Unauthorized).json({ message: 'Login failed: Invalid username or password' });
+    }
+});
+
+USER_API.put('/:id', (req, res, next) => {
     /// TODO: Edit user
 
     const user = new User(); //TODO: The user info comes as part of the request 

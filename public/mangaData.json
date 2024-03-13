@@ -24,6 +24,21 @@
             "name": "Jujutsu Kaisen",
             "description": "Shibuya station war flashbacks",
             "numberOfVolumes": 25
+        },
+        {
+            "name": "Hunter X Hunter",
+            "description": "Main characters dad is 'gon'e",
+            "numberOfVolumes": 37
+        },
+        {
+            "name": "Haikyuu",
+            "description": "Volleyball dummies",
+            "numberOfVolumes": 45
+        },
+        {
+            "name": "Seraph of the End",
+            "description": "Fight against vampires goes bad",
+            "numberOfVolumes": 31
         }
     ]
 }

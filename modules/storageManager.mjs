@@ -23,7 +23,7 @@ class DBManager {
 
         try {
             await client.connect();
-            const output = await client.query('Update "public"."Users" set "username" = $1, "password" = $2, "email" = $3 where id = $4;', [user.name, user.email, user.pswHash, user.id]);
+            const output = await client.query('Update "public"."Users" set "username" = $1, "pswHash" = $2, "email" = $3 where id = $4;', [user.name, user.email, user.pswHash, user.id]);
 
             // Client.Query returns an object of type pg.Result (https://node-postgres.com/apis/result)
             // Of special intrest is the rows and rowCount properties of this object.
@@ -50,11 +50,17 @@ class DBManager {
 
             // Client.Query returns an object of type pg.Result (https://node-postgres.com/apis/result)
             // Of special intrest is the rows and rowCount properties of this object.
+            if (output.rowCount === 1) {
+                console.log(`User ${user.id} deleted.`);
+            } else {
+                console.log(`User ${user.id} doesn't exist.`);
+            }
 
             //TODO: Did the user get deleted?
 
         } catch (error) {
-            //TODO : Error handling?? Remember that this is a module seperate from your server 
+            //TODO : Error handling?? Remember that this is a module seperate from your server
+            console.error(error);
         } finally {
             client.end(); // Always disconnect from the database.
         }
@@ -68,22 +74,31 @@ class DBManager {
 
         try {
             await client.connect();
-            const output = await client.query('INSERT INTO "public"."users"("username", "password", "email") VALUES($1::Text, $2::Text, $3::Text) RETURNING id;', [user.name, user.pswHash, user.email]);
-           
-            // Client.Query returns an object of type pg.Result (https://node-postgres.com/apis/result)
-            // Of special intrest is the rows and rowCount properties of this object.
+            console.log("Connected to the database");
+
+            const query = 'INSERT INTO "public"."users"("username", "pswHash", "email") VALUES($1::Text, $2::Text, $3::Text) RETURNING id;';
+            console.log('Executing query:', query);
+
+            const output = await client.query('INSERT INTO "public"."users"("username", "pswHash", "email") VALUES($1::Text, $2::Text, $3::Text) RETURNING id;', [user.name, user.pswHash, user.email]);
+            console.log('Query executed successfully');
+
+            console.log('Output:', output);
 
             if (output.rows.length == 1) {
                 // We stored the user in the DB.
                 user.id = output.rows[0].id;
                 console.log(user.id);
             }
-
         } catch (error) {
-            console.error(error);
-            //TODO : Error handling?? Remember that this is a module seperate from your server 
+            console.error('Error creating user:', error);
+            throw new Error('Error creating user. ' + error.message);
         } finally {
-            client.end(); // Always disconnect from the database.
+            try {
+                await client.end(); // Always disconnect from the database.
+                console.log('Disconnected from the database');
+            } catch (e) {
+                console.error('Error closing database connection:', e);
+            }
         }
 
         return user;

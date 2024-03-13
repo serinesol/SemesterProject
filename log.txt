@@ -473,3 +473,420 @@ Database connection  postgresql://postgres:passord@localhost:5432/library
 1:49:05 PM [32mGET[39m /
 1:49:05 PM [32mGET[39m /mangaData.json
 1:49:09 PM [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+2:45:44 PM [32mGET[39m /
+2:45:45 PM [32mGET[39m /mangaData.json
+2:46:03 PM [33mPOST[39m /user
+4:08:55 PM [32mGET[39m /
+4:08:55 PM [32mGET[39m /mangaData.json
+4:09:07 PM [33mPOST[39m /user
+4:09:39 PM [32mGET[39m /
+4:09:40 PM [32mGET[39m /mangaData.json
+####################
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+5:32:58 PM [32mGET[39m /
+5:32:58 PM [32mGET[39m /mangaData.json
+5:32:58 PM [32mGET[39m /favicon.ico
+5:33:21 PM [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+5:35:25 PM [32mGET[39m /
+5:35:25 PM [32mGET[39m /mangaData.json
+5:42:09 PM [33mPOST[39m /user
+5:42:32 PM [33mPOST[39m /user
+####################
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+2:12:34 PM [32mGET[39m /
+2:12:34 PM [32mGET[39m /mangaData.json
+2:12:34 PM [32mGET[39m /favicon.ico
+2:12:50 PM [33mPOST[39m /user
+####################
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+10:27:53 AM [32mGET[39m /
+10:27:53 AM [32mGET[39m /favicon.ico
+10:27:53 AM [32mGET[39m /mangaData.json
+10:28:10 AM [33mPOST[39m /user
+10:28:24 AM [32mGET[39m /
+10:28:24 AM [32mGET[39m /mangaData.json
+10:28:29 AM [33mPOST[39m /user
+10:30:19 AM [32mGET[39m /
+10:30:19 AM [32mGET[39m /mangaData.json
+10:30:19 AM [32mGET[39m /favicon.ico
+10:30:27 AM [33mPOST[39m /user
+11:24:56 AM [32mGET[39m /
+11:24:56 AM [32mGET[39m /mangaData.json
+11:24:59 AM [33mPOST[39m /user
+11:25:02 AM [32mGET[39m /
+11:25:02 AM [32mGET[39m /mangaData.json
+11:26:04 AM [32mGET[39m /
+11:26:04 AM [32mGET[39m /mangaData.json
+11:26:04 AM [32mGET[39m /favicon.ico
+11:28:01 AM [32mGET[39m /
+11:28:01 AM [32mGET[39m /mangaData.json
+11:28:21 AM [32mGET[39m /
+11:28:21 AM [32mGET[39m /mangaData.json
+11:28:32 AM [32mGET[39m /
+11:28:32 AM [32mGET[39m /mangaData.json
+11:32:50 AM [32mGET[39m /
+11:32:50 AM [32mGET[39m /mangaData.json
+11:32:53 AM [33mPOST[39m /user
+11:32:55 AM [32mGET[39m /
+11:32:56 AM [32mGET[39m /mangaData.json
+11:35:32 AM [32mGET[39m /
+11:35:32 AM [32mGET[39m /mangaData.json
+11:35:34 AM [32mGET[39m /
+11:35:34 AM [32mGET[39m /mangaData.json
+11:35:34 AM [32mGET[39m /
+11:35:34 AM [32mGET[39m /mangaData.json
+11:35:37 AM [32mGET[39m /
+11:35:37 AM [32mGET[39m /mangaData.json
+11:37:00 AM [32mGET[39m /
+11:37:00 AM [32mGET[39m /mangaData.json
+11:39:32 AM [32mGET[39m /
+11:39:32 AM [32mGET[39m /mangaData.json
+11:39:37 AM [32mGET[39m /
+11:39:37 AM [32mGET[39m /mangaData.json
+11:39:53 AM [32mGET[39m /
+11:39:53 AM [32mGET[39m /mangaData.json
+11:40:04 AM [32mGET[39m /
+11:40:04 AM [32mGET[39m /mangaData.json
+11:40:34 AM [32mGET[39m /
+11:40:34 AM [32mGET[39m /mangaData.json
+11:52:12 AM [32mGET[39m /
+11:52:12 AM [32mGET[39m /mangaData.json
+11:52:45 AM [32mGET[39m /
+11:52:46 AM [32mGET[39m /mangaData.json
+11:52:52 AM [32mGET[39m /
+11:52:52 AM [32mGET[39m /mangaData.json
+11:53:40 AM [32mGET[39m /
+11:53:40 AM [32mGET[39m /mangaData.json
+11:55:32 AM [32mGET[39m /
+11:55:32 AM [32mGET[39m /mangaData.json
+12:04:42 PM [32mGET[39m /
+12:04:42 PM [32mGET[39m /mangaData.json
+12:04:42 PM [32mGET[39m /favicon.ico
+12:07:57 PM [32mGET[39m /
+12:07:57 PM [32mGET[39m /mangaData.json
+12:11:15 PM [32mGET[39m /
+12:11:15 PM [32mGET[39m /mangaData.json
+11:51:02 AM [32mGET[39m /
+11:51:02 AM [32mGET[39m /mangaData.json
+11:51:02 AM [32mGET[39m /favicon.ico
+11:51:05 AM [32mGET[39m /
+11:51:05 AM [32mGET[39m /mangaData.json
+11:57:53 AM [32mGET[39m /
+11:57:53 AM [32mGET[39m /mangaData.json
+11:58:20 AM [32mGET[39m /
+11:58:21 AM [32mGET[39m /mangaData.json
+11:58:21 AM [32mGET[39m /
+11:58:22 AM [32mGET[39m /mangaData.json
+11:58:38 AM [32mGET[39m /
+11:58:38 AM [32mGET[39m /mangaData.json
+11:58:43 AM [33mPOST[39m /user
+12:01:11 PM [32mGET[39m /
+12:01:11 PM [32mGET[39m /mangaData.json
+12:02:21 PM [32mGET[39m /
+12:02:21 PM [32mGET[39m /mangaData.json
+12:02:24 PM [33mPOST[39m /user
+12:17:45 PM [32mGET[39m /
+12:17:45 PM [32mGET[39m /mangaData.json
+12:17:53 PM [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+12:20:51 PM [32mGET[39m /
+12:20:51 PM [32mGET[39m /mangaData.json
+12:21:07 PM [33mPOST[39m /user
+12:23:13 PM [32mGET[39m /
+12:23:13 PM [32mGET[39m /mangaData.json
+12:23:18 PM [33mPOST[39m /user
+12:39:32 PM [32mGET[39m /
+12:39:32 PM [32mGET[39m /mangaData.json
+12:39:32 PM [32mGET[39m /favicon.ico
+12:39:36 PM [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+12:43:42 PM [32mGET[39m /
+12:43:42 PM [32mGET[39m /mangaData.json
+12:43:44 PM [33mPOST[39m /user
+1:52:21 PM [33mPOST[39m /user
+####################
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+1:54:39 PM [32mGET[39m /
+1:54:40 PM [32mGET[39m /mangaData.json
+1:54:44 PM [33mPOST[39m /user
+Server enviorment local
+####################
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+1:55:52 PM [32mGET[39m /
+1:55:52 PM [32mGET[39m /mangaData.json
+1:55:58 PM [33mPOST[39m /user
+1:56:31 PM [32mGET[39m /
+1:56:31 PM [32mGET[39m /mangaData.json
+1:56:34 PM [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+2:19:51 PM [32mGET[39m /
+2:19:51 PM [32mGET[39m /mangaData.json
+2:20:06 PM [33mPOST[39m /user
+2:21:28 PM [32mGET[39m /
+2:21:28 PM [32mGET[39m /mangaData.json
+2:23:29 PM [32mGET[39m /
+2:23:29 PM [32mGET[39m /mangaData.json
+2:23:34 PM [33mPOST[39m /user
+2:23:36 PM [32mGET[39m /
+2:23:36 PM [32mGET[39m /mangaData.json
+2:23:44 PM [33mPOST[39m /user
+2:33:11 PM [32mGET[39m /
+2:33:41 PM [32mGET[39m /
+2:33:41 PM [32mGET[39m /mangaData.json
+2:33:45 PM [33mPOST[39m /user
+2:36:28 PM [32mGET[39m /
+2:36:28 PM [32mGET[39m /mangaData.json
+2:36:32 PM [33mPOST[39m /user
+2:36:39 PM [33mPOST[39m /login
+2:42:11 PM [32mGET[39m /
+2:42:11 PM [32mGET[39m /mangaData.json
+2:42:11 PM [32mGET[39m /favicon.ico
+2:42:23 PM [33mPOST[39m /user
+2:42:27 PM [33mPOST[39m /login
+2:49:05 PM [32mGET[39m /
+2:49:05 PM [32mGET[39m /mangaData.json
+2:49:06 PM [32mGET[39m /favicon.ico
+2:49:13 PM [33mPOST[39m /user
+2:49:17 PM [33mPOST[39m /login
+####################
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+2:51:35 PM [32mGET[39m /
+2:51:35 PM [32mGET[39m /mangaData.json
+2:52:02 PM [33mPOST[39m /user
+2:52:10 PM [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+3:45:56 PM [32mGET[39m /
+3:45:56 PM [32mGET[39m /mangaData.json
+3:45:56 PM [32mGET[39m /favicon.ico
+3:46:05 PM [33mPOST[39m /user
+3:46:19 PM [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+3:49:37 PM [32mGET[39m /
+3:49:37 PM [32mGET[39m /mangaData.json
+3:49:37 PM [32mGET[39m /favicon.ico
+3:49:42 PM [33mPOST[39m /login
+3:53:03 PM [33mPOST[39m /login
+3:56:58 PM [33mPOST[39m /user
+3:57:04 PM [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+8:28:33 PM [32mGET[39m /
+8:28:34 PM [32mGET[39m /mangaData.json
+8:28:34 PM [32mGET[39m /favicon.ico
+8:30:09 PM [32mGET[39m /
+8:30:09 PM [32mGET[39m /mangaData.json
+8:30:15 PM [33mPOST[39m /user
+8:30:26 PM [33mPOST[39m /user
+8:30:29 PM [32mGET[39m /
+8:30:29 PM [32mGET[39m /mangaData.json
+8:33:43 PM [33mPOST[39m /user
+8:34:14 PM [32mGET[39m /
+8:34:14 PM [32mGET[39m /mangaData.json
+8:34:14 PM [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+8:37:26 PM [32mGET[39m /
+8:37:26 PM [32mGET[39m /mangaData.json
+8:38:02 PM [32mGET[39m /
+8:38:02 PM [32mGET[39m /mangaData.json
+8:38:45 PM [32mGET[39m /
+8:38:45 PM [32mGET[39m /mangaData.json
+8:41:56 PM [32mGET[39m /
+8:41:56 PM [32mGET[39m /mangaData.json
+8:45:29 PM [32mGET[39m /
+8:45:29 PM [32mGET[39m /mangaData.json
+8:46:02 PM [32mGET[39m /
+8:46:02 PM [32mGET[39m /mangaData.json
+8:46:28 PM [32mGET[39m /
+8:46:29 PM [32mGET[39m /mangaData.json
+8:47:08 PM [32mGET[39m /
+8:47:08 PM [32mGET[39m /mangaData.json
+8:48:04 PM [32mGET[39m /
+8:48:04 PM [32mGET[39m /mangaData.json
+8:48:42 PM [32mGET[39m /
+8:48:42 PM [32mGET[39m /mangaData.json
+8:48:52 PM [32mGET[39m /
+8:48:52 PM [32mGET[39m /mangaData.json
+8:49:09 PM [32mGET[39m /
+8:49:09 PM [32mGET[39m /mangaData.json
+8:49:45 PM [32mGET[39m /
+8:49:45 PM [32mGET[39m /mangaData.json
+8:50:22 PM [32mGET[39m /
+8:50:22 PM [32mGET[39m /mangaData.json
+8:50:47 PM [32mGET[39m /
+8:50:47 PM [32mGET[39m /mangaData.json
+8:53:09 PM [32mGET[39m /
+8:53:09 PM [32mGET[39m /mangaData.json
+8:53:32 PM [32mGET[39m /
+8:53:32 PM [32mGET[39m /mangaData.json
+8:54:21 PM [32mGET[39m /
+8:54:21 PM [32mGET[39m /mangaData.json
+8:54:45 PM [32mGET[39m /
+8:54:45 PM [32mGET[39m /mangaData.json
+8:54:52 PM [32mGET[39m /
+8:54:52 PM [32mGET[39m /mangaData.json
+8:55:00 PM [32mGET[39m /
+8:55:00 PM [32mGET[39m /mangaData.json
+8:55:35 PM [32mGET[39m /
+8:55:35 PM [32mGET[39m /mangaData.json
+8:58:55 PM [32mGET[39m /
+8:58:55 PM [32mGET[39m /mangaData.json
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+9:02:37 PM [32mGET[39m /
+9:02:37 PM [32mGET[39m /mangaData.json
+9:03:13 PM [32mGET[39m /
+9:03:13 PM [32mGET[39m /mangaData.json
+9:03:18 PM [33mPOST[39m /login
+9:03:20 PM [33mPOST[39m /user
+9:03:54 PM [32mGET[39m /
+9:03:54 PM [32mGET[39m /mangaData.json
+9:04:00 PM [33mPOST[39m /user
+9:05:45 PM [32mGET[39m /
+9:05:45 PM [32mGET[39m /mangaData.json
+9:05:55 PM [32mGET[39m /
+9:05:55 PM [32mGET[39m /mangaData.json
+9:08:33 PM [32mGET[39m /
+9:08:33 PM [32mGET[39m /mangaData.json
+9:08:44 PM [32mGET[39m /
+9:08:45 PM [32mGET[39m /mangaData.json
+9:13:12 PM [32mGET[39m /
+9:13:12 PM [32mGET[39m /mangaData.json
+9:13:17 PM [32mGET[39m /
+9:13:17 PM [32mGET[39m /mangaData.json
+9:16:34 PM [32mGET[39m /
+9:16:34 PM [32mGET[39m /mangaData.json
+9:19:59 PM [32mGET[39m /
+9:19:59 PM [32mGET[39m /mangaData.json
+9:23:04 PM [32mGET[39m /
+9:23:04 PM [32mGET[39m /mangaData.json
+9:24:50 PM [32mGET[39m /
+9:24:50 PM [32mGET[39m /mangaData.json
+9:26:50 PM [32mGET[39m /
+9:26:50 PM [32mGET[39m /mangaData.json
+9:27:42 PM [32mGET[39m /
+9:27:42 PM [32mGET[39m /mangaData.json
+9:28:35 PM [32mGET[39m /
+9:28:35 PM [32mGET[39m /mangaData.json
+9:49:37 PM [32mGET[39m /
+9:49:37 PM [32mGET[39m /mangaData.json
+9:49:37 PM [32mGET[39m /favicon.ico
+9:55:32 PM [32mGET[39m /
+9:55:32 PM [32mGET[39m /mangaData.json
+9:55:32 PM [32mGET[39m /favicon.ico
+9:55:38 PM [32mGET[39m /
+9:55:38 PM [32mGET[39m /mangaData.json
+9:55:47 PM [32mGET[39m /
+9:55:47 PM [32mGET[39m /mangaData.json
+9:56:37 PM [32mGET[39m /
+9:56:37 PM [32mGET[39m /mangaData.json
+9:56:41 PM [32mGET[39m /
+9:56:41 PM [32mGET[39m /mangaData.json
+9:56:41 PM [32mGET[39m /favicon.ico
+9:57:24 PM [32mGET[39m /
+9:57:24 PM [32mGET[39m /mangaData.json
+9:57:25 PM [32mGET[39m /
+9:57:25 PM [32mGET[39m /mangaData.json
+9:57:30 PM [32mGET[39m /
+9:57:30 PM [32mGET[39m /mangaData.json
+9:57:36 PM [32mGET[39m /
+9:57:36 PM [32mGET[39m /mangaData.json
+9:58:33 PM [32mGET[39m /
+9:58:33 PM [32mGET[39m /mangaData.json
+9:58:38 PM [32mGET[39m /
+9:58:38 PM [32mGET[39m /mangaData.json
+10:01:41 PM [32mGET[39m /
+10:01:41 PM [32mGET[39m /favicon.ico
+10:01:41 PM [32mGET[39m /mangaData.json
+10:01:51 PM [32mGET[39m /
+10:01:51 PM [32mGET[39m /favicon.ico
+10:01:51 PM [32mGET[39m /mangaData.json
+10:02:02 PM [32mGET[39m /
+10:02:02 PM [32mGET[39m /favicon.ico
+10:02:02 PM [32mGET[39m /mangaData.json
+10:02:13 PM [32mGET[39m /
+10:02:13 PM [32mGET[39m /mangaData.json
+10:02:13 PM [32mGET[39m /favicon.ico
+10:02:22 PM [32mGET[39m /
+10:02:22 PM [32mGET[39m /mangaData.json
+10:02:22 PM [32mGET[39m /favicon.ico
+10:02:30 PM [32mGET[39m /
+10:02:30 PM [32mGET[39m /favicon.ico
+10:02:30 PM [32mGET[39m /mangaData.json
+10:02:37 PM [32mGET[39m /
+10:02:37 PM [32mGET[39m /mangaData.json
+10:02:37 PM [32mGET[39m /favicon.ico
+10:02:53 PM [32mGET[39m /
+10:02:53 PM [32mGET[39m /favicon.ico
+10:02:53 PM [32mGET[39m /mangaData.json
+10:15:16 PM [32mGET[39m /
+10:15:16 PM [32mGET[39m /mangaData.json
+10:15:16 PM [32mGET[39m /favicon.ico
+10:16:24 PM [32mGET[39m /
+10:16:24 PM [32mGET[39m /mangaData.json
+10:16:24 PM [32mGET[39m /favicon.ico
+10:16:29 PM [32mGET[39m /
+10:16:29 PM [32mGET[39m /mangaData.json
+10:22:48 PM [32mGET[39m /
+10:22:48 PM [32mGET[39m /favicon.ico
+10:22:48 PM [32mGET[39m /mangaData.json
+10:22:54 PM [32mGET[39m /
+10:22:54 PM [32mGET[39m /mangaData.json
+10:22:54 PM [32mGET[39m /favicon.ico
+10:24:35 PM [32mGET[39m /
+10:24:35 PM [32mGET[39m /mangaData.json
+10:24:35 PM [32mGET[39m /favicon.ico
+10:24:40 PM [32mGET[39m /
+10:24:40 PM [32mGET[39m /mangaData.json
+10:26:56 PM [32mGET[39m /
+10:26:56 PM [32mGET[39m /mangaData.json
+10:27:26 PM [32mGET[39m /
+10:27:26 PM [32mGET[39m /mangaData.json
+10:29:08 PM [32mGET[39m /
+10:29:08 PM [32mGET[39m /mangaData.json
+10:29:20 PM [32mGET[39m /
+10:29:20 PM [32mGET[39m /mangaData.json
+10:29:26 PM [32mGET[39m /
+10:29:26 PM [32mGET[39m /mangaData.json
+10:29:35 PM [32mGET[39m /
+10:29:35 PM [32mGET[39m /mangaData.json
