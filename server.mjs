@@ -18,6 +18,7 @@ server.use(logger.createAutoHTTPRequestLogger()); // Will logg all http method r
 
 // Defining a folder that will contain static files.
 server.use(express.static('public'));
+server.use(express.json());
 
 // Apply authMiddleware to specific routes
 //server.use(authenticateUser); // Apply the authMiddleware to all routes

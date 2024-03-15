@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MangaList</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <style>
         body {
             font-family: 'Courier New', Courier, monospace;
@@ -128,6 +131,8 @@
         <h4>Collect All Volumes!</h4>
     </div>
 
+    <div id="google_translate_element"></div>
+
     <div id="loginPage" class="login-container">
         <button id="loginButton">Log In</button>
         <br>
@@ -142,6 +147,20 @@
 
     </div>
 
+
+    <div class="mainPage-container">
+        <button id="settingsButton">Settings</button>
+    </div>
+
+    <div id="settingsPage" class="mainPage-container hidden">
+        <div>
+            <label for="newUsername">New Username:</label>
+            <input type="text" id="newUsername" placeholder="Enter new username">
+            <label for="newEmail">New Email:</label>
+            <input type="text" id="newEmail" placeholder="Enter new email">
+        </div>
+        <button id="updateButton">Update Information</button>
+    </div>
 
 
     <div id="mainPage" class="mainPage-container hidden">
@@ -163,6 +182,9 @@
 
 
 
+
+
+
     <script>
 
         const loginButton = document.getElementById("loginButton");
@@ -171,26 +193,57 @@
         const mainPage = document.getElementById("mainPage");
         const createUserButton = document.getElementById("createUserButton");
         const loginPage = document.getElementById("loginPage");
+        const settingsPage = document.getElementById("settingsPage");
+        const settingsButton = document.getElementById("settingsButton");
+        const updateButton = document.getElementById("updateButton");
 
         const mangaData = [];
+
+        /*
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,es,fr,no,ja,ko', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+        */
 
         loginButton.onclick = async function (e) {
             const username = document.getElementById("name").value;
             const password = document.getElementById("pswHash").value;
 
             try {
-                const response = await postTo("/login", { username, password });
+                const response = await postTo("/user", { username, password });
 
                 if (response.ok) {
                     mainPage.classList.remove("hidden");
                     loginPage.classList.add("hidden");
                     localStorage.setItem("loggedIn", "true");
                 } else {
-                    throw new Error("Login failed");
+                    const errorData = await response.json();
+                    throw new Error(errorData.message);
                 }
             } catch (error) {
                 console.error("Login error:", error);
             }
+        }
+
+        async function fetchUserInfo() {
+            const response = await getFrom("/user");
+            return response;
+        }
+
+        async function getFrom(url) {
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            return response;
+        }
+
+        settingsButton.onclick = async function (e) {
+            mainPage.classList.add("hidden");
+            settingsPage.classList.remove("hidden");
+            settingsButton.classList.add("hidden");
         }
 
         createUserButton.onclick = async function (e) {
@@ -206,7 +259,6 @@
                 localStorage.setItem("loggedIn", "true");
             }
         }
-
 
         async function postTo(url, data) {
             const header = {
@@ -287,7 +339,18 @@
             } catch (error) {
                 console.error('Error fetching manga data:', error.message);
             }
+
+            //---------------Settings---------------
+            async function fetchUserInfo() {
+                const response = await fetch("/user"); // Change the URL to match your endpoint
+                return response;
+            }
         });
+
+        updateButton.onclick = async function (e) {
+            const newUsername = document.getElementById("newUsername").value;
+            const newEmail = document.getElementById("newEmail").value;
+        }
 
         logoutButton.onclick = async function (e) {
             localStorage.removeItem("loggedIn");

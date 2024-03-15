@@ -17,8 +17,26 @@ class DBManager {
 
     }
 
-    async updateUser(user) {
+    async getUser(user){
+        const client = new pg.Client(this.#credentials);
 
+        try {
+            await client.connect();
+            const output = await client.query('SELECT * FROM "public"."Users" WHERE "username" = $1 AND "pswHash" = $2', [username, password]);
+
+            if (output.rows.length == 1) {
+                return user;
+            } else {
+                return null;
+            }
+        } catch (error) {
+            throw new Error('Error logging in. ' + error.message);
+        } finally {
+            client.end();
+        }
+    }
+
+    async updateUser(user) {
         const client = new pg.Client(this.#credentials);
 
         try {
@@ -41,7 +59,6 @@ class DBManager {
     }
 
     async deleteUser(user) {
-
         const client = new pg.Client(this.#credentials);
 
         try {
@@ -69,15 +86,14 @@ class DBManager {
     }
 
     async createUser(user) {
-
         const client = new pg.Client(this.#credentials);
 
         try {
             await client.connect();
             console.log("Connected to the database");
 
-            const query = 'INSERT INTO "public"."users"("username", "pswHash", "email") VALUES($1::Text, $2::Text, $3::Text) RETURNING id;';
-            console.log('Executing query:', query);
+            /* const query = 'INSERT INTO "public"."users"("username", "pswHash", "email") VALUES($1::Text, $2::Text, $3::Text) RETURNING id;';
+            console.log('Executing query:', query); */
 
             const output = await client.query('INSERT INTO "public"."users"("username", "pswHash", "email") VALUES($1::Text, $2::Text, $3::Text) RETURNING id;', [user.name, user.pswHash, user.email]);
             console.log('Query executed successfully');
@@ -114,11 +130,10 @@ class DBManager {
 
 let connectionString = process.env.ENVIORMENT == "local" ? process.env.DB_CONNECTIONSTRING_LOCAL : process.env.DB_CONNECTIONSTRING_PROD;
 
-
 // We are using an enviorment variable to get the db credentials 
 if (connectionString == undefined) {
     throw ("You forgot the db connection string");
-}
+} 
 
 export default new DBManager(connectionString);
 

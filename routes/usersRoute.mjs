@@ -44,13 +44,9 @@ USER_API.post('/', async (req, res, next) => {
         user.pswHash = pswHash; //TODO: Do not save passwords.
         user.email = email;
 
-        ///TODO: Does the user exist?
         let exists = false;
 
-        if (!exists) { // This needs to go into a database.
-
-            // "const statment = ``"
-
+        if (!exists) {
             user = await user.save();
             res.status(HTTPCodes.SuccesfullResponse.Ok).json(JSON.stringify(user)).end();
         } else {
@@ -63,19 +59,27 @@ USER_API.post('/', async (req, res, next) => {
 
 });
 
-USER_API.post('/login', (req, res, next) => {
+USER_API.post('/login', async (req, res, next) => {
     const { username, password } = req.body;
     console.log("Received login request with username:", username, "and password:", password);
 
-    // Find the user in your database or user list
-    const user = users.find(u => u.username === username && u.password === password);
+    const user = new User(); // Find the user in your database or user list
+    user.name = username;
+    user.password = password;
+    // 1. Spør daatabasen om bruker med epost og passord tilsvarende det du har fått tilsendt.
+    // 2. dersom det finnes OK
+    // ellers err.
 
-    if (user) {
-        // Authentication successful
-        res.status(HTTPCodes.SuccesfullResponse.Ok).json({ message: 'Login successful', user });
-    } else {
-        // Authentication failed
-        res.status(HTTPCodes.ClientSideError.Unauthorized).json({ message: 'Login failed: Invalid username or password' });
+    try {
+        const user = await user.exists(username, password, user.id);
+
+        if (user && user.id != undefined) { // Authentication successful
+            res.status(HTTPCodes.SuccesfullResponse.Ok).json({ message: 'Login successful', user });
+        } else { // Authentication failed
+            res.status(HTTPCodes.ClientSideError.Unauthorized).json({ message: 'Login failed: Invalid username or password' });
+        }
+    } catch (error) {
+        res.status(HTTPCodes.ClientSideError.Unauthorized).json({ message: 'Login failed: User not found' });
     }
 });
 

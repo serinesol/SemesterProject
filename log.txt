@@ -890,3 +890,370 @@ Database connection  postgresql://postgres:passord@localhost:5432/library
 10:29:26 PM [32mGET[39m /mangaData.json
 10:29:35 PM [32mGET[39m /
 10:29:35 PM [32mGET[39m /mangaData.json
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+9:13:21 AM [32mGET[39m /
+9:13:21 AM [32mGET[39m /mangaData.json
+9:13:33 AM [32mGET[39m /
+9:13:33 AM [32mGET[39m /mangaData.json
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+9:19:06 AM [32mGET[39m /
+9:19:06 AM [32mGET[39m /mangaData.json
+####################
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+9:26:19 AM [32mGET[39m /
+9:26:20 AM [32mGET[39m /mangaData.json
+9:26:31 AM [33mPOST[39m /user
+9:28:23 AM [33mPOST[39m /login
+9:29:39 AM [32mGET[39m /
+9:29:39 AM [32mGET[39m /mangaData.json
+9:29:43 AM [33mPOST[39m /login
+9:32:16 AM [32mGET[39m /
+9:32:16 AM [32mGET[39m /mangaData.json
+9:32:24 AM [33mPOST[39m /login
+9:32:56 AM [32mGET[39m /
+9:32:56 AM [32mGET[39m /mangaData.json
+9:32:59 AM [33mPOST[39m /login
+9:33:01 AM [33mPOST[39m /login
+9:35:22 AM [32mGET[39m /
+9:35:22 AM [32mGET[39m /mangaData.json
+9:35:35 AM [33mPOST[39m /login
+9:37:59 AM [32mGET[39m /
+9:37:59 AM [32mGET[39m /mangaData.json
+9:38:02 AM [33mPOST[39m /login
+9:41:06 AM [33mPOST[39m /login
+9:50:11 AM [32mGET[39m /
+9:50:11 AM [32mGET[39m /mangaData.json
+9:53:27 AM [32mGET[39m /
+9:53:27 AM [32mGET[39m /mangaData.json
+9:53:31 AM [32mGET[39m /
+9:54:20 AM [32mGET[39m /
+9:54:20 AM [32mGET[39m /mangaData.json
+9:54:40 AM [32mGET[39m /
+9:55:16 AM [33mPOST[39m /user
+9:56:00 AM [32mGET[39m /
+9:56:00 AM [32mGET[39m /mangaData.json
+9:56:01 AM [32mGET[39m /
+9:56:10 AM [33mPOST[39m /user
+9:56:59 AM [33mPOST[39m /login
+10:05:05 AM [33mPOST[39m /login
+10:06:11 AM [32mGET[39m /
+10:06:11 AM [32mGET[39m /favicon.ico
+10:06:11 AM [32mGET[39m /mangaData.json
+10:06:16 AM [33mPOST[39m /login
+10:06:45 AM [33mPOST[39m /login
+10:07:33 AM [32mGET[39m /
+10:07:33 AM [32mGET[39m /mangaData.json
+10:07:37 AM [33mPOST[39m /user/login
+10:30:37 AM [32mGET[39m /
+10:30:37 AM [32mGET[39m /mangaData.json
+10:30:50 AM [32mGET[39m /
+10:30:51 AM [32mGET[39m /mangaData.json
+10:31:14 AM [33mPOST[39m /user/login
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+11:17:46 AM [32mGET[39m /
+11:17:46 AM [32mGET[39m /mangaData.json
+11:17:46 AM [32mGET[39m /
+11:17:51 AM [33mPOST[39m /user/login
+11:31:54 AM [32mGET[39m /
+11:31:55 AM [32mGET[39m /mangaData.json
+11:31:59 AM [33mPOST[39m /user/login
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+11:37:37 AM [32mGET[39m /
+11:37:37 AM [32mGET[39m /mangaData.json
+11:37:45 AM [33mPOST[39m /user/login
+11:40:15 AM [32mGET[39m /
+11:40:15 AM [32mGET[39m /mangaData.json
+11:40:19 AM [33mPOST[39m /user/login
+12:05:11 PM [32mGET[39m /
+12:05:12 PM [32mGET[39m /favicon.ico
+12:05:12 PM [32mGET[39m /mangaData.json
+12:05:17 PM [33mPOST[39m /user/login
+12:14:46 PM [32mGET[39m /
+12:14:46 PM [32mGET[39m /mangaData.json
+12:14:51 PM [33mPOST[39m /user
+12:14:56 PM [33mPOST[39m /user/login
+12:16:07 PM [32mGET[39m /
+12:16:07 PM [32mGET[39m /mangaData.json
+12:16:11 PM [33mPOST[39m /user/login
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+12:16:23 PM [32mGET[39m /
+12:16:23 PM [32mGET[39m /mangaData.json
+12:16:26 PM [33mPOST[39m /user/login
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+12:50:23 PM GET /
+12:50:23 PM GET /mangaData.json
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+12:51:20 PM [33mPOST[39m /user
+####################
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+12:52:34 PM [33mPOST[39m /user/login
+12:52:40 PM [32mGET[39m /
+12:52:40 PM [32mGET[39m /mangaData.json
+12:52:47 PM [33mPOST[39m /user/login
+12:52:50 PM [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+12:56:35 PM [32mGET[39m /
+12:56:35 PM [32mGET[39m /mangaData.json
+12:56:41 PM [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+12:59:43 PM [32mGET[39m /
+12:59:44 PM [32mGET[39m /mangaData.json
+12:59:47 PM [32mGET[39m /
+12:59:47 PM [32mGET[39m /mangaData.json
+1:00:06 PM [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:17:51 PM GET /
+1:17:51 PM GET /mangaData.json
+1:18:01 PM POST /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:19:00 PM GET /
+1:19:01 PM GET /mangaData.json
+1:19:05 PM POST /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:21:50 PM GET /
+1:21:50 PM GET /mangaData.json
+1:21:58 PM POST /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:24:16 PM POST /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:27:20 PM POST /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:28:01 PM POST /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+####################
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+1:29:30 PM [32mGET[39m /
+1:29:30 PM [32mGET[39m /mangaData.json
+1:29:48 PM [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:31:21 PM POST /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:32:29 PM POST /user
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:36:02 PM POST /user/login
+1:36:02 PM POST /user/login
+1:36:02 PM POST /user/login
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:38:47 PM POST /user
+1:41:58 PM GET /
+1:41:59 PM GET /mangaData.json
+1:42:11 PM POST /user/login
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+1:42:34 PM [32mGET[39m /
+1:42:34 PM [32mGET[39m /mangaData.json
+1:42:38 PM [33mPOST[39m /user
+2:03:36 PM [32mGET[39m /
+2:03:36 PM [32mGET[39m /mangaData.json
+2:03:43 PM [33mPOST[39m /user/login
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+4:13:00 PM [32mGET[39m /
+4:13:01 PM [32mGET[39m /mangaData.json
+4:21:01 PM [32mGET[39m /
+4:21:02 PM [32mGET[39m /mangaData.json
+4:21:06 PM [33mPOST[39m /user
+4:21:46 PM [32mGET[39m /
+4:21:46 PM [32mGET[39m /mangaData.json
+4:27:41 PM [32mGET[39m /
+4:27:41 PM [32mGET[39m /mangaData.json
+4:28:19 PM [32mGET[39m /
+4:28:19 PM [32mGET[39m /mangaData.json
+4:28:51 PM [32mGET[39m /
+4:28:51 PM [32mGET[39m /mangaData.json
+4:33:23 PM [32mGET[39m /
+4:33:23 PM [32mGET[39m /mangaData.json
+4:34:52 PM [32mGET[39m /
+4:34:52 PM [32mGET[39m /mangaData.json
+4:37:10 PM [32mGET[39m /
+4:37:10 PM [32mGET[39m /mangaData.json
+4:38:34 PM [32mGET[39m /
+4:38:35 PM [32mGET[39m /mangaData.json
+4:42:57 PM [32mGET[39m /
+4:42:57 PM [32mGET[39m /user/info
+4:42:57 PM [32mGET[39m /mangaData.json
+4:43:46 PM [32mGET[39m /
+4:43:46 PM [32mGET[39m /mangaData.json
+4:43:46 PM [32mGET[39m /user
+Demo of logging tool
+A important msg
+4:44:54 PM [32mGET[39m /
+4:44:54 PM [32mGET[39m /mangaData.json
+4:44:54 PM [32mGET[39m /user
+Demo of logging tool
+A important msg
+4:46:24 PM [32mGET[39m /
+4:46:25 PM [32mGET[39m /mangaData.json
+4:46:25 PM [32mGET[39m /user
+Demo of logging tool
+A important msg
+4:50:57 PM [32mGET[39m /
+4:50:57 PM [32mGET[39m /mangaData.json
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+9:56:40 AM [32mGET[39m /
+9:56:40 AM [32mGET[39m /mangaData.json
+9:59:58 AM [32mGET[39m /
+9:59:58 AM [32mGET[39m /mangaData.json
+9:59:58 AM [32mGET[39m /favicon.ico
+10:01:27 AM [32mGET[39m /
+10:01:27 AM [32mGET[39m /favicon.ico
+10:01:27 AM [32mGET[39m /mangaData.json
+10:01:41 AM [32mGET[39m /
+10:01:41 AM [32mGET[39m /mangaData.json
+10:02:23 AM [32mGET[39m /
+10:02:23 AM [32mGET[39m /favicon.ico
+10:02:23 AM [32mGET[39m /mangaData.json
+10:02:26 AM [32mGET[39m /
+10:02:26 AM [32mGET[39m /favicon.ico
+10:02:26 AM [32mGET[39m /mangaData.json
+10:05:27 AM [32mGET[39m /
+10:05:27 AM [32mGET[39m /mangaData.json
+10:05:27 AM [32mGET[39m /favicon.ico
+10:05:29 AM [32mGET[39m /
+10:05:29 AM [32mGET[39m /mangaData.json
+10:05:43 AM [33mPOST[39m /user/login
+10:05:45 AM [33mPOST[39m /user
+10:06:00 AM [32mGET[39m /
+10:06:00 AM [32mGET[39m /mangaData.json
+10:06:00 AM [32mGET[39m /favicon.ico
+10:06:30 AM [33mPOST[39m /user/login
+10:12:57 AM [32mGET[39m /
+10:12:57 AM [32mGET[39m /mangaData.json
+####################
+Server enviorment local
+Database connection  postgresql://postgres:passord@localhost:5432/library
+####################
+10:13:10 AM [32mGET[39m /
+10:13:10 AM [32mGET[39m /mangaData.json
+####################
+Server enviorment local
+####################
+Database connection  postgresql://postgres:passord@localhost:5432/library
+10:13:59 AM [32mGET[39m /
+10:13:59 AM [32mGET[39m /mangaData.json
+10:14:41 AM [33mPOST[39m /user/login
+10:15:13 AM [32mGET[39m /mangaData.json
+10:18:58 AM [32mGET[39m /
+10:18:58 AM [32mGET[39m /mangaData.json
+10:19:02 AM [33mPOST[39m /user/login
+10:19:57 AM [33mPOST[39m /user/login
+10:20:07 AM [32mGET[39m /
+10:20:07 AM [32mGET[39m /mangaData.json
+10:22:24 AM [32mGET[39m /
+10:22:24 AM [32mGET[39m /mangaData.json
+10:23:18 AM [32mGET[39m /
+10:23:18 AM [32mGET[39m /mangaData.json
+10:23:25 AM [33mPOST[39m /user
+10:23:32 AM [32mGET[39m /
+10:23:32 AM [32mGET[39m /mangaData.json
+10:24:00 AM [33mPOST[39m /user/login
+10:24:44 AM [32mGET[39m /
+10:24:44 AM [32mGET[39m /mangaData.json
+10:24:48 AM [33mPOST[39m /user/login
+10:27:33 AM [32mGET[39m /
+10:27:34 AM [32mGET[39m /mangaData.json
+10:27:40 AM [33mPOST[39m /user/login
+10:31:17 AM [32mGET[39m /
+10:31:17 AM [32mGET[39m /mangaData.json
+10:31:21 AM [33mPOST[39m /user/login
+10:34:20 AM [32mGET[39m /
+10:34:20 AM [32mGET[39m /mangaData.json
+10:34:25 AM [33mPOST[39m /user/login
+10:34:38 AM [33mPOST[39m /user/login
+10:35:09 AM [32mGET[39m /
+10:35:09 AM [32mGET[39m /mangaData.json
+10:35:12 AM [33mPOST[39m /user
+10:35:36 AM [33mPOST[39m /user

@@ -23,6 +23,10 @@ class User {
 
     }
 
+    async exists(){
+        return await DBManager.getUser(this.username,this.pswHash);
+    }
+
     async displayAll() {
         try {
             const users = await DBManager.GetAllUsers();
